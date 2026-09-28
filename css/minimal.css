@@ -1,0 +1,298 @@
+/* 土耳其 × 希腊 2026.11 —— 极简版。表面只放关键信息，其余进 popup */
+:root {
+  color-scheme: light;
+  --bg: #fbfcfc;
+  --surface: #fff;
+  --ink: #15323a;
+  --muted: #6a838c;
+  --faint: #93a7ae;
+  --line: #e4ebe9;
+  --tr: #b1543c;
+  --gr: #0b6f86;
+  --serif: "Noto Serif SC", "Songti SC", "STSong", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box }
+html { scroll-behavior: smooth }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.7 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100% }
+button { font: inherit; color: inherit }
+:focus-visible { outline: 2px solid var(--gr); outline-offset: 2px }
+
+.wrap { max-width: 700px; margin: 0 auto; padding: 0 20px }
+.tr { --acc: var(--tr) }
+.gr { --acc: var(--gr) }
+
+/* hero */
+.hero { padding: 46px 0 0 }
+.hero h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(27px, 6vw, 38px);
+  line-height: 1.15;
+}
+.hero h1 .x { font-weight: 600; color: var(--faint); margin: 0 .1em }
+.lede { margin: 11px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.7 }
+
+/* 三条亮点：克制字号，只用文字 */
+.highs { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.highs li { font-size: 12.5px; line-height: 1.65; color: var(--muted) }
+.highs b { font-weight: 600; color: var(--ink) }
+.highs b::after { content: "　"; font-weight: 400 }
+
+/* 区块 */
+section { margin-top: 44px }
+h2 { margin: 0; font-family: var(--serif); font-weight: 900; font-size: 18px; line-height: 1.4 }
+.sub { margin: 3px 0 0; font-size: 12.5px; color: var(--faint) }
+
+/* A / B 方案切换 */
+.plans { display: flex; gap: 4px; margin: 14px 0 0 }
+.pbtn {
+  padding: 5px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pbtn.on { border-color: var(--ink); background: var(--ink); color: #fff }
+.pnote { margin: 9px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.7 }
+.map[data-plan="A"] [data-plan="B"], .map[data-plan="B"] [data-plan="A"] { display: none }
+
+/* 行程：单列，每天一行 */
+.leg { margin-top: 22px }
+.leg-h {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 5px;
+}
+.leg-h b { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--acc) }
+.leg-h span { font-size: 11.5px; color: var(--faint); font-variant-numeric: tabular-nums }
+.rows { list-style: none; margin: 0; padding: 0 }
+.row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 11px 0;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+.rows li:last-child .row { border-bottom: 1px solid var(--line) }
+.row .d {
+  font-size: 11.5px;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+.row .d b { display: block; font-size: 13.5px; font-weight: 600; color: var(--acc) }
+.row .t { font-size: 14px; line-height: 1.55; min-width: 0 }
+.row .t i {
+  display: block;
+  margin-top: 1px;
+  font-style: normal;
+  font-size: 11.5px;
+  color: var(--faint);
+}
+.row:hover .t { text-decoration: underline; text-underline-offset: 3px }
+.row .m { display: flex; align-items: baseline; gap: 8px; white-space: nowrap }
+.row .m .nb { font-style: normal; font-size: 10.5px; color: var(--faint); letter-spacing: .06em }
+.row .m .mi { font-style: normal; font-size: 12px; letter-spacing: 1px }
+
+/* 地图 */
+.map { margin-top: 16px; background: #edf3f4; border: 1px solid var(--line) }
+.map svg { width: 100%; height: auto; display: block }
+.map .cty { stroke: #c3d4d9; stroke-width: .8; fill: #f1f3ef }
+.map .TUR { fill: #f6e3da }
+.map .GRC { fill: #dceaf0 }
+.map .drive { fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round }
+.map .fly { fill: none; stroke-width: 1.6; stroke-dasharray: 5 6; stroke: var(--faint) }
+.map .stop circle { stroke: #fff; stroke-width: 2 }
+.map .stop text.n { fill: #fff; font: 700 11px var(--sans); text-anchor: middle; dominant-baseline: central }
+.map .stop text.l {
+  fill: var(--ink);
+  font: 600 13px var(--sans);
+  paint-order: stroke;
+  stroke: #edf3f4;
+  stroke-width: 4px;
+}
+.map-key { display: flex; gap: 16px; margin: 7px 0 0; font-size: 11.5px; color: var(--faint) }
+.map-key i { display: inline-block; width: 18px; vertical-align: middle; margin-right: 5px }
+.map-key .k1 { border-top: 3px solid var(--tr) }
+.map-key .k2 { border-top: 3px solid var(--gr) }
+.map-key .k3 { border-top: 2px dashed var(--faint) }
+
+/* 折叠块 */
+details { margin-top: 44px; border-top: 1px solid var(--line) }
+details > summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 18px;
+}
+details > summary::-webkit-details-marker { display: none }
+details > summary::after {
+  content: "＋";
+  margin-left: auto;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--faint);
+}
+details[open] > summary::after { content: "－" }
+details > summary em { font-style: normal; font-family: var(--sans); font-weight: 400; font-size: 12px; color: var(--faint) }
+.dbody { padding: 0 0 22px }
+
+/* 待定 / 讨论点 */
+.tlist { list-style: none; margin: 0; padding: 0 }
+.tlist > li { padding: 12px 0; border-top: 1px solid var(--line) }
+.tlist > li:first-child { border-top: 0; padding-top: 2px }
+.tq { display: flex; align-items: baseline; gap: 8px; font-size: 14px; font-weight: 600; line-height: 1.55 }
+.tq span { font-size: 11px; font-weight: 600; color: var(--faint); font-variant-numeric: tabular-nums }
+.ta { margin: 3px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.7 }
+.topts { list-style: none; margin: 7px 0 0; padding: 0; display: grid; gap: 5px }
+.topts li { padding-left: 11px; border-left: 2px solid var(--line); font-size: 12.5px; color: var(--muted); line-height: 1.65 }
+.topts li.yes { border-left-color: var(--gr); color: var(--ink) }
+.topts b { font-weight: 600; color: var(--ink); margin-right: 6px }
+.topts u { text-decoration: none; color: var(--gr); font-weight: 600; margin-right: 6px }
+.tnow { margin: 6px 0 0; font-size: 12px; color: var(--faint) }
+.tnow b { font-weight: 600; color: var(--ink) }
+.tsoft { margin: 16px 0 6px; font-size: 10.5px; font-weight: 700; letter-spacing: .12em; color: var(--faint) }
+a.tlink { color: var(--gr); font-weight: 600; text-decoration: none; white-space: nowrap }
+a.tlink:hover { text-decoration: underline }
+
+/* 实用信息 */
+.info h3 { margin: 14px 0 4px; font-size: 13px }
+.info h3:first-child { margin-top: 0 }
+.info p { margin: 2px 0; font-size: 12.5px; color: var(--muted); line-height: 1.7 }
+.tscroll { overflow-x: auto; margin: 6px 0 10px }
+.flights { width: 100%; border-collapse: collapse; font-size: 12.5px }
+.flights tr { border-top: 1px solid var(--line) }
+.flights tr:first-child { border-top: 0 }
+.flights td { padding: 6px 10px 6px 0; vertical-align: baseline; white-space: nowrap }
+.flights td:last-child { padding-right: 0 }
+.flights .dt { color: var(--faint); font-variant-numeric: tabular-nums }
+.flights .fn { font-weight: 600; color: var(--gr); font-variant-numeric: tabular-nums }
+.flights .du { color: var(--faint); text-align: right; font-variant-numeric: tabular-nums }
+.flights sup { font-size: .72em; color: var(--tr); font-weight: 700 }
+
+footer { margin: 44px 0 40px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--faint); line-height: 1.7 }
+footer a { color: var(--muted) }
+
+/* ── popup ── */
+.mo {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  background: rgba(16, 38, 45, .4);
+}
+.mo[hidden] { display: none }
+@media (min-width: 620px) { .mo { align-items: center; padding: 32px 20px } }
+.mobox {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px 14px 0 0;
+}
+@media (min-width: 620px) { .mobox { max-height: 100%; border-radius: 14px } }
+.mohead { flex: 0 0 auto; padding: 17px 20px 13px; border-bottom: 1px solid var(--line) }
+.mokick { font-size: 11.5px; color: var(--faint); font-variant-numeric: tabular-nums; letter-spacing: .04em }
+.mohead h3 { margin: 3px 0 0; font-family: var(--serif); font-weight: 900; font-size: 19px; line-height: 1.35; padding-right: 30px }
+.mohead p { margin: 2px 0 0; font-size: 12px; color: var(--faint) }
+.moclose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--faint);
+  font-size: 15px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.moclose:hover { background: #eef3f2; color: var(--ink) }
+.mobody { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 15px 20px 22px; -webkit-overflow-scrolling: touch }
+.mobody h4 { margin: 17px 0 6px; font-size: 10.5px; font-weight: 700; letter-spacing: .13em; color: var(--faint) }
+.mobody h4:first-child { margin-top: 0 }
+.mobody > p { margin: 0; font-size: 13px; line-height: 1.8; color: var(--muted) }
+
+.plan { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px }
+.plan li { display: grid; grid-template-columns: 46px 1fr; gap: 9px; font-size: 13.5px; line-height: 1.6 }
+.plan i { font-style: normal; font-size: 11.5px; color: var(--faint); padding-top: 2px; font-variant-numeric: tabular-nums }
+.hl { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px }
+.hl li { padding-left: 11px; border-left: 2px solid var(--line) }
+.hl b { display: block; font-size: 13px; font-weight: 600; line-height: 1.5 }
+.hl span { display: block; margin-top: 1px; font-size: 12px; color: var(--muted); line-height: 1.6 }
+.notes { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px }
+.dlink { margin: 9px 0 0; font-size: 12.5px }
+.notes li { font-size: 12.5px; color: var(--muted); line-height: 1.75; padding-left: 11px; border-left: 2px dashed var(--line) }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 }
+.shots figure { margin: 0 }
+.shots img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #eef3f2 }
+.shots figcaption { margin-top: 3px; font-size: 10.5px; color: var(--faint); line-height: 1.45 }
+.shots a { color: var(--faint) }
+.cover { margin: 0 }
+.cover img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #eef3f2 }
+.cover figcaption { margin-top: 3px; font-size: 10.5px; color: var(--faint) }
+.cover a { color: var(--faint) }
+.mocross { display: flex; flex-wrap: wrap; gap: 14px; margin: 9px 0 0 }
+.xlink {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--acc, var(--gr));
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.xlink:hover { text-decoration: underline; text-underline-offset: 3px }
+.mojumps { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 0 }
+.mojump {
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mojump:hover { border-color: var(--acc, var(--gr)); color: var(--acc, var(--gr)) }

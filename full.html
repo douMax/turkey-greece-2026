@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#fbfcfc">
-  <title>土耳其 × 希腊 2026.11</title>
+  <meta name="theme-color" content="#f4f9f7">
+  <title>土耳其 × 希腊 2026.11 · 完整版</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/minimal.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -18,27 +18,14 @@
     <header class="hero">
       <h1>土耳其<span class="x">×</span>希腊</h1>
       <p class="lede">2026 年 11 月 6 日从悉尼出发，11 月 23 日回到悉尼，全程 18 天，纯玩16天，6 人同行。两段自驾串起爱琴海两岸，享受淡季的清静。</p>
-      <ul class="highs">
+      <div class="herogrid">
+        <ul class="highs">
         <li><b>帝国首都</b><span>伊斯坦布尔 —— 圣索菲亚、托普卡帕宫、大巴扎与博斯普鲁斯海峡，拜占庭与奥斯曼的身影此刻重叠。</span></li>
         <li><b>神奇山谷</b><span>卡帕多奇亚 —— 上百只气球升空，格雷梅的岩凿教堂和精灵烟囱，大自然的鬼斧神工。</span></li>
         <li><b>古典之旅</b><span>特洛伊、帕加马、以弗所，雅典卫城、德尔斐神谕所、迈泰奥拉的悬空修道院。</span></li>
         </ul>
-    </header>
-
-    <section id="trip-sec">
-      <h2>行程</h2>
-      <p class="sub">点任意一天看当天安排、备注、图片，以及所在城市的速览。</p>
-      <div class="plans" role="tablist" aria-label="行程方案">
-        <button class="pbtn" data-plan="A" role="tab">方案 A</button>
-        <button class="pbtn" data-plan="B" role="tab">方案 B</button>
-      </div>
-      <p class="pnote" id="pnote"></p>
-      <div id="trip"></div>
-    </section>
-
-    <section>
-      <h2>路线图</h2>
-      <div class="map" role="img" aria-label="行程路线示意图"><svg viewBox="0 0 1000 518" xmlns="http://www.w3.org/2000/svg">
+        <div class="mapcol">
+        <div class="map" role="img" aria-label="行程路线示意图"><svg viewBox="0 0 1000 518" xmlns="http://www.w3.org/2000/svg">
           <path class="cty TUR"
             d="M381,175L377,172L381,168L392,165L395,169L395,172L381,175ZM997,500L982,494L986,487L977,464L981,456L999,437L999,426L991,418L968,432L966,438L961,442L952,443L911,425L888,441L867,465L852,473L806,480L799,485L783,480L774,473L753,447L707,425L671,421L668,427L666,447L660,467L656,469L647,464L615,475L587,463L582,457L576,434L572,433L568,436L563,436L543,426L533,425L526,435L516,439L516,436L520,430L503,431L494,436L482,433L483,430L493,427L515,424L529,409L476,410L471,413L470,405L473,401L487,399L486,392L478,385L469,382L464,365L460,361L460,359L469,356L471,344L469,337L452,330L448,331L444,324L437,320L431,324L414,314L417,307L421,307L422,301L418,292L419,287L423,286L427,287L431,293L432,303L436,309L439,303L447,307L461,303L464,301L454,301L450,298L442,281L450,276L456,267L445,262L447,250L437,237L450,219L450,217L445,216L403,223L402,216L406,209L405,192L407,183L415,181L425,168L440,152L456,153L463,148L472,148L475,154L484,158L499,158L506,154L499,146L507,144L514,145L511,154L513,155L532,152L552,154L574,153L577,150L561,142L571,135L624,127L624,125L596,121L581,111L577,106L580,93L583,90L593,89L628,95L654,92L681,100L707,98L713,95L719,82L757,62L770,51L828,30L914,34L929,26L938,28L936,34L936,39L947,51L962,58L983,52L991,55L1000,76L1000,492L997,500ZM514,42L518,51L527,64L535,71L577,89L571,106L561,109L525,100L510,107L500,106L485,109L481,119L471,130L442,145L416,173L408,177L412,167L411,159L423,149L439,141L443,135L403,136L399,127L403,126L416,110L417,104L416,88L432,80L433,76L431,61L415,52L416,48L427,44L433,33L449,31L456,26L470,23L487,36L508,31L516,33L514,42Z" />
           <path class="cty SYR" d="M982,494L997,500L1000,492L1000,518L975,518L979,499L982,494Z" />
@@ -55,92 +42,208 @@
             d="M508,31L487,36L470,23L456,26L449,31L433,33L427,44L418,46L415,52L408,50L403,51L400,55L405,67L404,77L392,83L384,81L352,88L337,79L328,77L324,79L313,73L309,65L307,64L301,67L281,66L280,71L277,72L271,72L257,77L233,77L228,82L220,82L214,81L216,60L219,50L216,48L209,31L194,22L180,7L185,5L188,0L494,0L514,27L516,33L508,31Z" />
           <path class="cty ALB"
             d="M3,40L4,25L0,15L9,0L53,0L56,5L66,10L72,17L76,37L71,53L72,63L68,67L71,77L70,86L75,97L80,102L83,112L97,114L98,118L98,124L102,135L98,145L89,149L80,174L77,176L66,179L60,184L64,198L60,198L58,205L54,209L41,205L39,192L33,179L11,167L1,152L8,154L9,152L2,132L10,112L11,89L8,74L12,64L16,58L16,47L10,41L3,40Z" />
-          <path class="fly" data-plan="A" d="M573,106 Q760,150 919,286" />
+          <path class="fly" d="M573,106 Q760,150 919,286" />
           <path class="fly" d="M919,286 Q760,230 573,106" />
-          <path class="fly" data-plan="A" d="M464,303 Q360,300 262,336" />
-          <path class="fly" data-plan="B" d="M464,303 Q690,400 919,286" />
-          <path class="fly" data-plan="B" d="M573,106 Q400,180 262,336" />
+          <path class="fly" d="M464,303 Q360,300 262,336" />
           <path class="fly" d="M262,336 L302,518" />
           <polyline class="drive" style="stroke:var(--tr)" points="573,106 421,171 411,186 467,250 464,303 477,339" />
           <polyline class="drive" style="stroke:var(--gr)" points="262,336 189,298 92,208 138,205 262,336" />
-          <g class="stop" data-na="1" data-nb="1" data-to="d7" tabindex="0" role="button" aria-label="伊斯坦布尔">
+          <g class="stop" data-to="d7" tabindex="0" role="button" aria-label="伊斯坦布尔">
             <circle cx="573" cy="106" r="10" fill="var(--tr)" /><text class="n" x="573" y="106">1</text><text class="l"
               x="583" y="96">伊斯坦布尔</text>
           </g>
-          <g class="stop" data-na="2" data-nb="7" data-to="d10" tabindex="0" role="button" aria-label="卡帕多奇亚">
+          <g class="stop" data-to="d10" tabindex="0" role="button" aria-label="卡帕多奇亚">
             <circle cx="919" cy="286" r="10" fill="var(--tr)" /><text class="n" x="919" y="286">2</text><text class="l"
               x="827" y="272">卡帕多奇亚</text>
           </g>
-          <g class="stop" data-na="3" data-nb="2" data-to="d12" tabindex="0" role="button" aria-label="恰纳卡莱">
+          <g class="stop" data-to="d12" tabindex="0" role="button" aria-label="恰纳卡莱">
             <circle cx="421" cy="171" r="10" fill="var(--tr)" /><text class="n" x="421" y="171">3</text><text class="l"
               x="351" y="159">恰纳卡莱</text>
           </g>
-          <g class="stop" data-na="4" data-nb="3" data-to="d13" tabindex="0" role="button" aria-label="特洛伊">
+          <g class="stop" data-to="d13" tabindex="0" role="button" aria-label="特洛伊">
             <circle cx="411" cy="186" r="10" fill="var(--tr)" /><text class="n" x="411" y="186">4</text><text class="l"
               x="353" y="198">特洛伊</text>
           </g>
-          <g class="stop" data-na="5" data-nb="4" data-to="d13" tabindex="0" role="button" aria-label="帕加马">
+          <g class="stop" data-to="d13" tabindex="0" role="button" aria-label="帕加马">
             <circle cx="467" cy="250" r="10" fill="var(--tr)" /><text class="n" x="467" y="250">5</text><text class="l"
               x="479" y="254">帕加马</text>
           </g>
-          <g class="stop" data-na="6" data-nb="5" data-to="d13" tabindex="0" role="button" aria-label="伊兹密尔">
+          <g class="stop" data-to="d13" tabindex="0" role="button" aria-label="伊兹密尔">
             <circle cx="464" cy="303" r="10" fill="var(--tr)" /><text class="n" x="464" y="303">6</text><text class="l"
               x="476" y="307">伊兹密尔</text>
           </g>
-          <g class="stop" data-na="7" data-nb="6" data-to="d14" tabindex="0" role="button" aria-label="以弗所">
+          <g class="stop" data-to="d14" tabindex="0" role="button" aria-label="以弗所">
             <circle cx="477" cy="339" r="10" fill="var(--tr)" /><text class="n" x="477" y="339">7</text><text class="l"
               x="489" y="347">以弗所</text>
           </g>
-          <g class="stop" data-na="8" data-nb="8" data-to="d16" tabindex="0" role="button" aria-label="雅典">
+          <g class="stop" data-to="d16" tabindex="0" role="button" aria-label="雅典">
             <circle cx="262" cy="336" r="10" fill="var(--gr)" /><text class="n" x="262" y="336">8</text><text class="l"
               x="274" y="350">雅典</text>
           </g>
-          <g class="stop" data-na="9" data-nb="9" data-to="d18" tabindex="0" role="button" aria-label="德尔斐">
+          <g class="stop" data-to="d18" tabindex="0" role="button" aria-label="德尔斐">
             <circle cx="189" cy="298" r="10" fill="var(--gr)" /><text class="n" x="189" y="298">9</text><text class="l"
               x="131" y="312">德尔斐</text>
           </g>
-          <g class="stop" data-na="10" data-nb="10" data-to="d19" tabindex="0" role="button" aria-label="约阿尼纳">
+          <g class="stop" data-to="d19" tabindex="0" role="button" aria-label="约阿尼纳">
             <circle cx="92" cy="208" r="10" fill="var(--gr)" /><text class="n" x="92" y="208">10</text><text class="l"
               x="82" y="192">约阿尼纳</text>
           </g>
-          <g class="stop" data-na="11" data-nb="11" data-to="d20" tabindex="0" role="button" aria-label="迈泰奥拉">
+          <g class="stop" data-to="d20" tabindex="0" role="button" aria-label="迈泰奥拉">
             <circle cx="138" cy="205" r="10" fill="var(--gr)" /><text class="n" x="138" y="205">11</text><text class="l"
               x="150" y="195">迈泰奥拉</text>
           </g><text x="308" y="508" style="fill:var(--muted);font:12px var(--sans)">✈ 悉尼</text>
         </svg></div>
       <div class="map-key"><span><i class="k1"></i>土耳其自驾</span><span><i class="k2"></i>希腊自驾</span><span><i
             class="k3"></i>航班</span></div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="qnav" aria-label="快速导航">
+      <ul>
+        <li><a href="#topics">待定</a></li>
+        <li><a href="#cities">城市速览</a></li>
+        <li><a href="#tr" class="tr">土耳其</a></li>
+        <li><a href="#gr">希腊</a></li>
+        <li><a href="#info">实用信息</a></li>
+      </ul>
+    </nav>
+
+    <section class="topics" id="topics">
+      <div class="topics-head">
+        <h2>待定 / 讨论点</h2>
+        <p class="sub">出发前要一起定的几件事。点左边的日期跳到当天。</p>
+      </div>
+      <ol class="tlist" id="tlist"></ol>
     </section>
 
-
-    <details>
-      <summary>待定 / 讨论点 <em id="tcount"></em></summary>
-      <div class="dbody">
-        <ul class="tlist" id="tlist"></ul>
+    <section class="cities" id="cities">
+      <div class="cities-head">
+        <h2>城市速览</h2>
+        <p class="sub">左右滑动，点卡片看详情。</p>
       </div>
-    </details>
+      <ul class="clist" id="clist"></ul>
+    </section>
 
+    <section class="country tr" id="tr">
+      <div class="country-head">
+        <h2>土耳其</h2><span class="range">11-6 出发 · 11-7 – 11-15，8 晚</span>
+      </div>
+      <div class="nodes" id="nodes-tr"></div>
+      <p class="swipe-hint">左右滑动查看，点城市跳到当天</p>
+      <div class="days" id="days-tr"></div>
+    </section>
 
+    <section class="country gr" id="gr">
+      <div class="country-head">
+        <h2>希腊</h2><span class="range">11-15 – 11-22，7 晚</span>
+      </div>
+      <div class="nodes" id="nodes-gr"></div>
+      <p class="swipe-hint">左右滑动查看，点城市跳到当天</p>
+      <div class="days" id="days-gr"></div>
+    </section>
+
+    <div class="info" id="info">
+      <section class="wide">
+        <h3>航班</h3>
+        <div class="tscroll">
+          <table class="flights">
+            <tr>
+              <td class="dt">11-6</td>
+              <td class="fn">EY455</td>
+              <td>悉尼 SYD 21:30 → 阿布扎比 AUH 05:00<sup>+1</sup></td>
+              <td class="du">14h30</td>
+            </tr>
+            <tr>
+              <td class="dt">11-7</td>
+              <td class="fn">EY541</td>
+              <td>阿布扎比 AUH 08:45 → 伊斯坦布尔 IST 12:50</td>
+              <td class="du">5h05</td>
+            </tr>
+            <tr>
+              <td class="dt">11-10</td>
+              <td class="fn">待定</td>
+              <td>伊斯坦布尔 → 卡帕多奇亚（ASR 或 NAV）</td>
+              <td class="du">约 1h30</td>
+            </tr>
+            <tr>
+              <td class="dt">11-12</td>
+              <td class="fn">待定</td>
+              <td>卡帕多奇亚 → 伊斯坦布尔 IST（上午，接机场取车）</td>
+              <td class="du">约 1h30</td>
+            </tr>
+            <tr>
+              <td class="dt">11-15</td>
+              <td class="fn">直飞</td>
+              <td>伊兹密尔 ADB 20:40 → 雅典 ATH 20:40</td>
+              <td class="du">约 1h</td>
+            </tr>
+            <tr>
+              <td class="dt">11-22</td>
+              <td class="fn">EY190</td>
+              <td>雅典 ATH 13:05 → 阿布扎比 AUH 19:35</td>
+              <td class="du">4h30</td>
+            </tr>
+            <tr>
+              <td class="dt">11-22</td>
+              <td class="fn">EY454</td>
+              <td>阿布扎比 AUH 21:05 → 悉尼 SYD 17:45<sup>+1</sup></td>
+              <td class="du">13h40</td>
+            </tr>
+          </table>
+        </div>
+        <p>去程门到门 23 小时 20 分，阿布扎比中转 3 小时 45 分；回程 19 小时 40 分，中转只有 1 小时 30 分。</p>
+      </section>
+      <section class="tr">
+        <h3>土耳其租车</h3>
+        <p>11-12 伊斯坦布尔机场（IST）取车，11-15 伊兹密尔机场（ADB）还车。</p>
+        <p>6 人 + 6 个大箱：Vito / V-Class、Peugeot Traveller、Hyundai Staria 类。澳洲驾照 + 国际驾照。</p>
+      </section>
+      <section class="gr">
+        <h3>希腊租车</h3>
+        <p>11-18 雅典取车，11-21 雅典还车。环线：雅典 → 德尔斐 → 约阿尼纳 → 迈泰奥拉 → 雅典。</p>
+        <p>山路多，11 月天黑早，长途段尽量白天开完。</p>
+      </section>
+    </div>
     <footer>
-      <p style="margin:0 0 6px"><a href="full.html">完整版（含实用信息、航班表）→</a></p>
+      <p style="margin:0 0 8px"><a href="index.html">← 回到极简版</a></p>
       图片多数取自 Wikimedia Commons（自由授权，非无版权，点图片右下角可看作者与许可）；另有几张单独标注了来源。开放时间、船班、航班出发前再核实。</footer>
   </div>
 
-  <div class="mo" id="mo" hidden role="dialog" aria-modal="true" aria-labelledby="motitle">
-    <div class="mobox">
-      <div class="mohead">
-        <div class="mokick" id="mokick"></div>
-        <h3 id="motitle"></h3>
-        <p id="mosub"></p>
-        <div class="mocross" id="mocross"></div>
-        <button class="moclose" id="moclose" aria-label="关闭">✕</button>
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="图片浏览">
+    <div class="lbbox">
+      <div class="lbstage">
+        <div class="lbtrack" id="lbtrack"></div>
+        <div class="lbdots" id="lbdots"></div>
+        <button class="lbclose" id="lbclose" aria-label="关闭">✕</button>
+        <button class="lbarrow prev" id="lbprev" aria-label="上一张">‹</button>
+        <button class="lbarrow next" id="lbnext" aria-label="下一张">›</button>
       </div>
-      <div class="mobody" id="mobody"></div>
+      <div class="lbcap">
+        <span class="t" id="lbtxt"></span>
+        <span class="n" id="lbnum"></span>
+        <a id="lblink" target="_blank" rel="noopener" hidden></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cb" id="cb" hidden role="dialog" aria-modal="true" aria-labelledby="cbname">
+    <div class="cbbox">
+      <div class="cbhero">
+        <figure class="cbph empty" id="cbph"><img alt=""><figcaption><a class="cr" target="_blank" rel="noopener"></a></figcaption></figure>
+        <button class="cbclose" id="cbclose" aria-label="关闭">✕</button>
+        <div class="cbtitle">
+          <span class="nt" id="cbnt"></span>
+          <h3 id="cbname"></h3>
+          <p id="cben"></p>
+        </div>
+      </div>
+      <div class="cbbody" id="cbbody"></div>
     </div>
   </div>
 
   <script src="js/data.js"></script>
-  <script src="js/minimal.js"></script>
+  <script src="js/app.js"></script>
 </body>
 
 </html>
