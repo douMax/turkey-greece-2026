@@ -118,7 +118,7 @@ h2 { margin: 0; font-family: var(--serif); font-weight: 900; font-size: 18px; li
 .row .m .mi { font-style: normal; font-size: 12px; letter-spacing: 1px }
 
 /* 地图 */
-.map { margin-top: 16px; background: #edf3f4; border: 1px solid var(--line) }
+.map { margin-top: 14px; background: #edf3f4; border: 1px solid var(--line) }
 .map svg { width: 100%; height: auto; display: block }
 .map .cty { stroke: #c3d4d9; stroke-width: .8; fill: #f1f3ef }
 .map .TUR { fill: #f6e3da }
@@ -134,7 +134,7 @@ h2 { margin: 0; font-family: var(--serif); font-weight: 900; font-size: 18px; li
   stroke: #edf3f4;
   stroke-width: 4px;
 }
-.map-key { display: flex; gap: 16px; margin: 7px 0 0; font-size: 11.5px; color: var(--faint) }
+.map-key { display: flex; gap: 16px; margin: 7px 0 4px; font-size: 11.5px; color: var(--faint) }
 .map-key i { display: inline-block; width: 18px; vertical-align: middle; margin-right: 5px }
 .map-key .k1 { border-top: 3px solid var(--tr) }
 .map-key .k2 { border-top: 3px solid var(--gr) }

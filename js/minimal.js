@@ -88,10 +88,11 @@ function topicRow(t) {
   </li>`;
 }
 function renderTopics() {
+  if (!el("tlist")) return;              /* 极简版已隐藏讨论点 */
   const hard = TOPICS.filter(t => !t.soft), soft = TOPICS.filter(t => t.soft);
   el("tlist").innerHTML = hard.map(topicRow).join("")
     + (soft.length ? `<li class="tsoft">不影响订票订房，当天再定</li>` + soft.map(topicRow).join("") : "");
-  el("tcount").textContent = TOPICS.length + " 项";
+  if (el("tcount")) el("tcount").textContent = TOPICS.length + " 项";
 }
 
 /* ---------- 图片 ---------- */
