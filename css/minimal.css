@@ -78,7 +78,10 @@ h2 { margin: 0; font-family: var(--serif); font-weight: 900; font-size: 18px; li
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-.map[data-plan="A"] [data-plan="B"], .map[data-plan="B"] [data-plan="A"] { display: none }
+/* 元素的 data-plan 是空格分隔的方案列表，不含当前方案就隐藏 */
+.map[data-plan="A"] [data-plan]:not([data-plan~="A"]),
+.map[data-plan="B"] [data-plan]:not([data-plan~="B"]),
+.map[data-plan="C"] [data-plan]:not([data-plan~="C"]) { display: none }
 
 /* 行程：单列，每天一行 */
 .leg { margin-top: 22px }
