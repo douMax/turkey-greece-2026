@@ -7,14 +7,24 @@ let cur = null;               /* 当前打开的 popup，取图完成后用它�
 
 /* ---------- A / B 方案：希腊段相同，土耳其段不同 ---------- */
 const SHARED_TR = ["d6", "d7", "d8", "d9"];   /* 出发日 + 伊斯坦布尔 3 晚，两方案共用 */
+/* 行程综述：两方案共用的前后段 + 中间高亮的土耳其差异 */
+const OVERVIEW = {
+  pre: "11-6 傍晚从悉尼起飞，经阿布扎比转机，11-7 中午落地伊斯坦布尔，老城住 3 晚 —— 圣索菲亚、"
+     + "托普卡帕宫、大巴扎和博斯普鲁斯海峡。接着",
+  post: "希腊段两方案完全相同：雅典先住 3 晚，看卫城、卫城博物馆和古市集；11-18 取车走德尔斐、"
+      + "约阿尼纳、迈泰奥拉的环线，11-21 傍晚回雅典还车。11-22 中午飞离雅典，经阿布扎比，"
+      + "11-23 傍晚回到悉尼。土耳其 8 晚、希腊 7 晚。"
+};
 const PLANS = {
   A: {
     tr: () => TR,
-    sub: "先飞卡帕多奇亚，再回伊斯坦布尔取车南下走特洛伊与以弗所，11-15 从伊兹密尔直飞雅典。"
+    sub: "先飞卡帕多奇亚住 2 晚，清晨在观景台拍热气球，再飞回伊斯坦布尔取车南下——特洛伊、帕加马、"
+       + "以弗所一路看到伊兹密尔，11-15 从伊兹密尔直飞雅典，当晚到。"
   },
   B: {
     tr: () => TR.filter(d => SHARED_TR.includes(d.id)).concat(TR_B),
-    sub: "先取车南下走完特洛伊与以弗所，再飞卡帕多奇亚收尾，11-15 经伊斯坦布尔转机，下午两点多到雅典。"
+    sub: "先在伊斯坦布尔取车南下——特洛伊、帕加马、以弗所一路看到伊兹密尔，再飞卡帕多奇亚住 2 晚收尾，"
+       + "11-15 经伊斯坦布尔转机去雅典，下午两点多就到。"
   }
 };
 let plan = "A";
@@ -42,7 +52,9 @@ function renderTrip() {
   el("trip").innerHTML =
     `<div class="leg tr"><div class="leg-h"><b>土耳其</b><span>11-6 – 11-15 · 8 晚</span></div>${rows(PLANS[plan].tr())}</div>` +
     `<div class="leg gr"><div class="leg-h"><b>希腊　两方案相同</b><span>11-15 – 11-22 · 7 晚</span></div>${rows(GR)}</div>`;
-  el("pnote").textContent = PLANS[plan].sub;
+  el("pnote").innerHTML = esc(OVERVIEW.pre)
+    + `<mark>${esc(PLANS[plan].sub)}</mark>`
+    + esc(OVERVIEW.post);
   [...document.querySelectorAll(".pbtn")].forEach(b => {
     const on = b.dataset.plan === plan;
     b.classList.toggle("on", on);
