@@ -6,7 +6,7 @@ let IMG = {};                 /* Wikipedia 主图：title -> {src,file} */
 let cur = null;               /* 当前打开的 popup，取图完成后用它重绘 */
 
 /* ---------- A / B 方案：希腊段相同，土耳其段不同 ---------- */
-const SHARED_TR = ["d6", "d7", "d8", "d9"];   /* 出发日 + 伊斯坦布尔 3 晚，两方案共用 */
+const pickTR = ids => TR.filter(d => ids.includes(d.id));
 /* 行程综述：两方案共用的前后段 + 中间高亮的土耳其差异 */
 const OVERVIEW = {
   pre: "11-7 中午落地伊斯坦布尔，老城住 3 晚 —— 圣索菲亚、"
@@ -22,16 +22,21 @@ const PLANS = {
       + "以弗所一路看到伊兹密尔，11-15 从伊兹密尔直飞雅典，当晚到。"
   },
   B: {
-    tr: () => TR.filter(d => SHARED_TR.includes(d.id)).concat(TR_B),
+    tr: () => pickTR(["d6", "d7", "d8", "d9"]).concat(TR_B),
     sub: "先在伊斯坦布尔取车南下——特洛伊、帕加马、以弗所一路看到伊兹密尔，再飞卡帕多奇亚住 2 晚收尾，"
-      + "11-15 经伊斯坦布尔转机去雅典，下午两点多就到。"
+      + "11-15 经伊斯坦布尔转机去雅典，下午两点多就到。机票要另订一套。"
+  },
+  C: {
+    tr: () => pickTR(["d6", "d7", "d8", "d9", "d10", "d11", "d12"]).concat(TR_C),
+    sub: "机票与 A 完全相同，只把伊兹密尔两晚换成塞尔丘克 + 棉花堡——特洛伊、帕加马后直接宿塞尔丘克，"
+      + "次日开门即进以弗所，下午转去棉花堡看日落，第三天日出加希拉波利斯，再开回 ADB 还车飞雅典。"
   }
 };
 let plan = "A";
 try { const p = localStorage.getItem("trip-plan"); if (p === "A" || p === "B") plan = p } catch (e) { }
 
-const allDays = () => [...PLANS.A.tr(), ...TR_B, ...GR];
-const cityMeta = c => (plan === "B" && c.b) ? { ...c, ...c.b } : c;
+const allDays = () => [...TR, ...TR_B, ...TR_C, ...GR];
+const cityMeta = c => { const o = plan === "B" ? c.b : plan === "C" ? c.c : null; return o ? { ...c, ...o } : c; };
 
 /* 当天交通：直接从 plan 文本里的 ✈ / 🚗 推出来 */
 function modes(x) {
@@ -84,6 +89,9 @@ const DAY2CITY = {
   /* 方案 B 的土耳其段 */
   b10: ["恰纳卡莱"], b11: ["恰纳卡莱", "伊兹密尔"], b12: ["以弗所 · 塞尔丘克"],
   b13: ["伊兹密尔", "卡帕多奇亚"], b14: ["卡帕多奇亚"], b15: ["卡帕多奇亚"],
+  /* 方案 C 的最后三天 */
+  c13: ["恰纳卡莱", "以弗所 · 塞尔丘克"], c14: ["以弗所 · 塞尔丘克", "棉花堡"],
+  c15: ["棉花堡", "伊兹密尔"],
   d16: ["雅典"], d17: ["雅典"], d18: ["德尔斐"], d19: ["约阿尼纳"],
   d20: ["迈泰奥拉 · 卡斯特拉基"], d21: ["迈泰奥拉 · 卡斯特拉基", "雅典"], d22: ["雅典"]
 };

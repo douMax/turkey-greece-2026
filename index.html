@@ -52,6 +52,7 @@
       <div class="plans" role="tablist" aria-label="行程方案">
         <button class="pbtn" data-plan="A" role="tab">方案 A</button>
         <button class="pbtn" data-plan="B" role="tab">方案 B</button>
+        <button class="pbtn" data-plan="C" role="tab">方案 C</button>
       </div>
       <p class="pnote" id="pnote"></p>
       <div class="map" role="img" aria-label="行程路线示意图"><svg viewBox="0 0 1000 518" xmlns="http://www.w3.org/2000/svg">
@@ -71,55 +72,57 @@
             d="M508,31L487,36L470,23L456,26L449,31L433,33L427,44L418,46L415,52L408,50L403,51L400,55L405,67L404,77L392,83L384,81L352,88L337,79L328,77L324,79L313,73L309,65L307,64L301,67L281,66L280,71L277,72L271,72L257,77L233,77L228,82L220,82L214,81L216,60L219,50L216,48L209,31L194,22L180,7L185,5L188,0L494,0L514,27L516,33L508,31Z" />
           <path class="cty ALB"
             d="M3,40L4,25L0,15L9,0L53,0L56,5L66,10L72,17L76,37L71,53L72,63L68,67L71,77L70,86L75,97L80,102L83,112L97,114L98,118L98,124L102,135L98,145L89,149L80,174L77,176L66,179L60,184L64,198L60,198L58,205L54,209L41,205L39,192L33,179L11,167L1,152L8,154L9,152L2,132L10,112L11,89L8,74L12,64L16,58L16,47L10,41L3,40Z" />
-          <path class="fly" data-plan="A" d="M573,106 Q760,150 919,286" />
+          <path class="fly" data-plan="A C" d="M573,106 Q760,150 919,286" />
           <path class="fly" d="M919,286 Q760,230 573,106" />
-          <path class="fly" data-plan="A" d="M464,303 Q360,300 262,336" />
+          <path class="fly" data-plan="A C" d="M464,303 Q360,300 262,336" />
           <path class="fly" data-plan="B" d="M464,303 Q690,400 919,286" />
           <path class="fly" data-plan="B" d="M573,106 Q400,180 262,336" />
           <path class="fly" d="M262,336 L302,518" />
-          <polyline class="drive" style="stroke:var(--tr)" points="573,106 421,171 411,186 467,250 464,303 477,339" />
+          <polyline class="drive" data-plan="A B" style="stroke:var(--tr)" points="573,106 421,171 411,186 467,250 464,303 477,339" />
+          <polyline class="drive" data-plan="C" style="stroke:var(--tr)" points="573,106 421,171 411,186 467,250 477,339 581,341 464,303" />
           <polyline class="drive" style="stroke:var(--gr)" points="262,336 189,298 92,208 138,205 262,336" />
-          <g class="stop" data-na="1" data-nb="1" data-to="d7" tabindex="0" role="button" aria-label="伊斯坦布尔">
+          <g class="stop" data-na="1" data-nb="1" data-nc="1" data-to="d7" tabindex="0" role="button" aria-label="伊斯坦布尔">
             <circle cx="573" cy="106" r="10" fill="var(--tr)" /><text class="n" x="573" y="106">1</text><text class="l"
               x="583" y="96">伊斯坦布尔</text>
           </g>
-          <g class="stop" data-na="2" data-nb="7" data-to="d10" tabindex="0" role="button" aria-label="卡帕多奇亚">
+          <g class="stop" data-na="2" data-nb="7" data-nc="2" data-to="d10" tabindex="0" role="button" aria-label="卡帕多奇亚">
             <circle cx="919" cy="286" r="10" fill="var(--tr)" /><text class="n" x="919" y="286">2</text><text class="l"
               x="827" y="272">卡帕多奇亚</text>
           </g>
-          <g class="stop" data-na="3" data-nb="2" data-to="d12" tabindex="0" role="button" aria-label="恰纳卡莱">
+          <g class="stop" data-na="3" data-nb="2" data-nc="3" data-to="d12" tabindex="0" role="button" aria-label="恰纳卡莱">
             <circle cx="421" cy="171" r="10" fill="var(--tr)" /><text class="n" x="421" y="171">3</text><text class="l"
               x="351" y="159">恰纳卡莱</text>
           </g>
-          <g class="stop" data-na="4" data-nb="3" data-to="d13" tabindex="0" role="button" aria-label="特洛伊">
+          <g class="stop" data-na="4" data-nb="3" data-nc="4" data-to="d13" tabindex="0" role="button" aria-label="特洛伊">
             <circle cx="411" cy="186" r="10" fill="var(--tr)" /><text class="n" x="411" y="186">4</text><text class="l"
               x="353" y="198">特洛伊</text>
           </g>
-          <g class="stop" data-na="5" data-nb="4" data-to="d13" tabindex="0" role="button" aria-label="帕加马">
+          <g class="stop" data-na="5" data-nb="4" data-nc="5" data-to="d13" tabindex="0" role="button" aria-label="帕加马">
             <circle cx="467" cy="250" r="10" fill="var(--tr)" /><text class="n" x="467" y="250">5</text><text class="l"
               x="479" y="254">帕加马</text>
           </g>
-          <g class="stop" data-na="6" data-nb="5" data-to="d13" tabindex="0" role="button" aria-label="伊兹密尔">
+          <g class="stop" data-na="6" data-nb="5" data-nc="8" data-to="d13" tabindex="0" role="button" aria-label="伊兹密尔">
             <circle cx="464" cy="303" r="10" fill="var(--tr)" /><text class="n" x="464" y="303">6</text><text class="l"
               x="476" y="307">伊兹密尔</text>
           </g>
-          <g class="stop" data-na="7" data-nb="6" data-to="d14" tabindex="0" role="button" aria-label="以弗所">
+          <g class="stop" data-na="7" data-nb="6" data-nc="6" data-to="d14" tabindex="0" role="button" aria-label="以弗所">
             <circle cx="477" cy="339" r="10" fill="var(--tr)" /><text class="n" x="477" y="339">7</text><text class="l"
               x="489" y="347">以弗所</text>
           </g>
-          <g class="stop" data-na="8" data-nb="8" data-to="d16" tabindex="0" role="button" aria-label="雅典">
+          <g class="stop" data-plan="C" data-nc="7" data-to="c14" tabindex="0" role="button" aria-label="棉花堡"><circle cx="581" cy="341" r="10" fill="var(--tr)" /><text class="n" x="581" y="341">7</text><text class="l" x="593" y="349">棉花堡</text></g>
+          <g class="stop" data-na="8" data-nb="8" data-nc="9" data-to="d16" tabindex="0" role="button" aria-label="雅典">
             <circle cx="262" cy="336" r="10" fill="var(--gr)" /><text class="n" x="262" y="336">8</text><text class="l"
               x="274" y="350">雅典</text>
           </g>
-          <g class="stop" data-na="9" data-nb="9" data-to="d18" tabindex="0" role="button" aria-label="德尔斐">
+          <g class="stop" data-na="9" data-nb="9" data-nc="10" data-to="d18" tabindex="0" role="button" aria-label="德尔斐">
             <circle cx="189" cy="298" r="10" fill="var(--gr)" /><text class="n" x="189" y="298">9</text><text class="l"
               x="131" y="312">德尔斐</text>
           </g>
-          <g class="stop" data-na="10" data-nb="10" data-to="d19" tabindex="0" role="button" aria-label="约阿尼纳">
+          <g class="stop" data-na="10" data-nb="10" data-nc="11" data-to="d19" tabindex="0" role="button" aria-label="约阿尼纳">
             <circle cx="92" cy="208" r="10" fill="var(--gr)" /><text class="n" x="92" y="208">10</text><text class="l"
               x="82" y="192">约阿尼纳</text>
           </g>
-          <g class="stop" data-na="11" data-nb="11" data-to="d20" tabindex="0" role="button" aria-label="迈泰奥拉">
+          <g class="stop" data-na="11" data-nb="11" data-nc="12" data-to="d20" tabindex="0" role="button" aria-label="迈泰奥拉">
             <circle cx="138" cy="205" r="10" fill="var(--gr)" /><text class="n" x="138" y="205">11</text><text class="l"
               x="150" y="195">迈泰奥拉</text>
           </g><text x="308" y="508" style="fill:var(--muted);font:12px var(--sans)">✈ 悉尼</text>
